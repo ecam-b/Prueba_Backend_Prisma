@@ -6,7 +6,7 @@ from config import DATABASE_URI_CONNECTION, SECRET_KEY
 # database
 from database.db import db
 # Routes
-from routes import User
+from routes import User, Bill
 
 app = Flask(__name__)
 
@@ -24,5 +24,6 @@ if __name__ == "__main__":
 
   # Blueprints
   app.register_blueprint(User.user) # No se establece el url_prefix
+  app.register_blueprint(Bill.bill, url_prefix='/bills')
 
   app.run(debug=True)
